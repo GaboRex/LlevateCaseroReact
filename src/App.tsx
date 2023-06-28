@@ -2,17 +2,17 @@ import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import { AppRouter } from "./router/AppRouter";
 import { AppTheme } from "./theme";
-import NoteProvider from "./context/ContextProvider";
+import AuthContextProvider from "./context/AuthContext";
 
 function App() {
   return (
-    <NoteProvider>
+    <AuthContextProvider>
       <AppTheme>
         <BrowserRouter>
           <AppRouter />
         </BrowserRouter>
       </AppTheme>
-    </NoteProvider>
+    </AuthContextProvider>
   );
 }
 

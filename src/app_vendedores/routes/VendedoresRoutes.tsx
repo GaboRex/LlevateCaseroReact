@@ -1,22 +1,21 @@
-import { useState } from "react";
-import { Navigate, Route, Routes, Switch } from "react-router-dom";
-import {HomePage} from "../pages/HomePage";
+import { Navigate, Route, Routes } from "react-router-dom";
+import ProductosPage from "../pages/ProductosPage";
 import { GuardedRoute } from "../../guards/GuaardedRoute";
 import { useStore } from "../../context/AuthContext";
 
-export const AppRoutes = () => {
+export const VendedoresRoutes = () => {
   const { auth } = useStore();
   return (
     <Routes>
       <Route
-        path="/"
+        path="productos"
         element={
           <GuardedRoute auth={auth}>
-            <HomePage />
+            <ProductosPage />
           </GuardedRoute>
         }
       />
-      <Route path="/*" element={<Navigate to="/" />} />
+      <Route path="/*" element={<Navigate to="productos" />} />
     </Routes>
   );
 };

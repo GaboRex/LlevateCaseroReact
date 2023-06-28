@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Navigate, Route, Routes, Switch } from "react-router-dom";
 import {HomePage} from "../pages/HomePage";
 import { GuardedRoute } from "../../guards/GuaardedRoute";
-import { useStore } from "../../context/AuthContext";
+import { useStore } from "../../context/AppContext";
 
 export const AppRoutes = () => {
   const { auth } = useStore();

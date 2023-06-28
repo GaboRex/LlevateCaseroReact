@@ -2,8 +2,8 @@ import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { Grid, TextField, Button, Typography, Link } from "@mui/material";
 import { Google } from "@mui/icons-material";
 import { AuthLayout } from "../layout/AuthLayout";
-import { useDispatch } from "../../context/AuthContext";
-import { types } from "../../context/AuthReducer";
+import { useDispatch } from "../../context/AppContext";
+import { types } from "../../context/storeReducer";
 import { useForm } from "react-hook-form";
 
 // import logo2 from "../../assets/logo3.png"; // Importa la imagen del logo

@@ -11,7 +11,7 @@ import MailIcon from "@mui/icons-material/Mail";
 import NavBar from "./NavBar";
 import { useNavigate } from "react-router-dom";
 
-export default function VendedoresLayout({children}) {
+export default function VendedoresLayout({ children }) {
   const [toggle, setToggle] = React.useState(false);
 
   const navigate = useNavigate();
@@ -39,7 +39,7 @@ export default function VendedoresLayout({children}) {
       <List>
         {["Home", "Items"].map((text, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton 
+            <ListItemButton
               onClick={() => navigate(`${text.toLowerCase()}`)}
             >
               <ListItemIcon>
@@ -55,12 +55,14 @@ export default function VendedoresLayout({children}) {
 
   return (
     <div>
-      <NavBar toggle={toggleDrawer(true)}/>
+
+      <NavBar toggle={toggleDrawer(true)} />
       {/* <Button onClick={toggleDrawer(true)}>Left</Button> */}
       <Drawer anchor={"left"} open={toggle} onClose={toggleDrawer(false)}>
         {list()}
       </Drawer>
       {children}
+
     </div>
   );
 }

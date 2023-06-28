@@ -6,8 +6,8 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
-import { types } from '../../context/AuthReducer';
-import { useDispatch } from '../../context/AuthContext';
+import { types } from '../../context/storeReducer';
+import { useDispatch } from '../../context/AppContext';
 
 
 export default function NavBar({toggle}) {

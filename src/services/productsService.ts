@@ -8,3 +8,7 @@ export const getProducts = async () => {
 export const postProduct = async (producto) => {
   return await API.post("/productos", producto);
 };
+
+export const deleteProduct = async (id) => {
+  return await API.delete(`/productos/${id}`);
+};

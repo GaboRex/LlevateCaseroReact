@@ -3,6 +3,7 @@ const types = {
   logout: "log out User",
   addProduct: "add product",
   setProducts: "set productos",
+  deleteProduct: "delete product",
 };
 
 const initialValues = {
@@ -32,6 +33,11 @@ const storeReducer = (state, action) => {
       return {
         ...state,
         productos: action.payload
+      }
+    case types.deleteProduct:
+      return {
+        ...state,
+        productos: state.productos.filter((p) => p.id !== action.payload),
       }
     default:
       return state;

@@ -8,12 +8,18 @@ const FormNuevoProducto = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const dispatch = useDispatch();
 
-  const onAddProduct = (data) => {
+  const onAddProduct = async (data) => {
     const nuevoProducto = {
       ...data
     }
-    dispatch({ type: types.addProduct, payload: nuevoProducto })
-    postProduct({data:nuevoProducto});
+    const post = await postProduct({data:nuevoProducto});
+    
+    const producto = {
+      id: post.data.data.id,
+      attributes: nuevoProducto
+    }
+    dispatch({ type: types.addProduct, payload: producto });
+
     reset();
   };
 

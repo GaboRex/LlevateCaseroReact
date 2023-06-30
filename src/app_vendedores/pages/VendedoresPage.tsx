@@ -12,9 +12,8 @@ const VendedoresPage = () => {
 
   const saveProducts = async () => {
     const { data } = await getProducts();
-    const products = data.map((p) => p.attributes)
-
-    dispatch({ type: types.setProducts, payload: products })
+    
+    dispatch({ type: types.setProducts, payload: data });
   }
 
   useEffect(() => {

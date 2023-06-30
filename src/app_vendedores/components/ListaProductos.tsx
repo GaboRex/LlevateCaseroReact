@@ -1,8 +1,17 @@
-import { Card, CardContent, Grid, Typography } from "@mui/material"
-import { useStore } from "../../context/AppContext"
+import { Button, Card, CardContent, Grid, Typography } from "@mui/material"
+import { useDispatch, useStore } from "../../context/AppContext"
+import { types } from "../../context/storeReducer";
+import { deleteProduct } from "../../services/productsService";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export const ListaProductos = () => {
-  const {productos} = useStore();
+  const { productos } = useStore();
+  const dispatch = useDispatch();
+
+  const eliminarProducto = (id) => {
+    dispatch({ type: types.deleteProduct, payload: id })
+    deleteProduct(id);
+  };
 
   return (
     <Grid container spacing={2}>
@@ -11,17 +20,25 @@ export const ListaProductos = () => {
           <Card>
             <CardContent>
               <Typography variant="h5" component="div">
-                {producto.Nombre}
+                {producto.attributes.Nombre}
               </Typography>
               <Typography variant="subtitle2" >
-                {producto.Categoria}
+                {producto.attributes.Categoria}
               </Typography>
               <Typography variant="subtitle1" color="text.secondary">
-                Precio: {producto.Precio} Bs
+                Precio: {producto.attributes.Precio} Bs
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                {producto.Descripcion}
+                {producto.attributes.Descripcion}
               </Typography>
+              <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <Button
+                  onClick={() => eliminarProducto(producto.id)}
+                  color="error"
+                  startIcon={<DeleteIcon />}
+                />
+                
+              </div>
             </CardContent>
           </Card>
         </Grid>

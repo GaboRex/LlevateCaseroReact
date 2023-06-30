@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import ProductosPage from "../pages/VendedoresPage";
+import VendedoresPage from "../pages/VendedoresPage";
 import { GuardedRoute } from "../../guards/GuaardedRoute";
 import { useStore } from "../../context/AppContext";
 
@@ -11,7 +11,7 @@ export const VendedoresRoutes = () => {
         path="productos"
         element={
           <GuardedRoute auth={auth}>
-            <ProductosPage />
+            <VendedoresPage />
           </GuardedRoute>
         }
       />

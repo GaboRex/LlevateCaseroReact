@@ -1,43 +1,31 @@
 import VendedoresLayout from "../layout/VendedoresLayout";
-import IProducto from "../models/IProducto";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import { useState } from "react"
-import { productos } from "../data/data"
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import { useDispatch } from "../../context/AppContext";
 import FormNuevoProducto from "../components/FormNuevoProducto";
 import { ListaProductos } from "../components/ListaProductos";
+import { getProducts } from "../../services/productsService";
+import { useEffect } from "react";
+import { useDispatch } from "../../context/AppContext";
+import { types } from "../../context/storeReducer";
 
-const ProductosPage = () => {
-
-  const [nombre, setNombre] = useState('');
-  const [precio, setPrecio] = useState('');
-  const [descripcion, setDescripcion] = useState('');
+const VendedoresPage = () => {
 
   const dispatch = useDispatch();
 
-  const handleAddProducto = () => {
-    const nuevoProducto = {
-      nombre,
-      precio: parseFloat(precio),
-      descripcion,
-    };
+  const saveProducts = async () => {
+    const { data } = await getProducts();
+    const products = data.map((p) => p.attributes)
 
+    dispatch({ type: types.setProducts, payload: products })
+  }
 
-    // onAddProducto(nuevoProducto);
-    setNombre('');
-    setPrecio('');
-    setDescripcion('');
-  };
-
+  useEffect(() => {
+    saveProducts();
+  }, [])
+  
+  
   return (
     <VendedoresLayout>
       <div>
-        <h1>Productos</h1>
+        <h1>Mis Productos</h1>
         <ListaProductos />
 
         <h2>Añadir nuevo producto</h2>
@@ -47,4 +35,4 @@ const ProductosPage = () => {
   );
 }
 
-export default ProductosPage;
+export default VendedoresPage;

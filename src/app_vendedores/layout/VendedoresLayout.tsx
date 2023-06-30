@@ -61,7 +61,11 @@ export default function VendedoresLayout({ children }) {
       <Drawer anchor={"left"} open={toggle} onClose={toggleDrawer(false)}>
         {list()}
       </Drawer>
-      {children}
+      <Box
+        sx={{ px: 4 }}
+      >
+        {children}
+      </Box>
 
     </div>
   );

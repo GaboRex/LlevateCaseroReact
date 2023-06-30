@@ -1,34 +1,14 @@
 const types = {
   login: "login User",
   logout: "log out User",
-  addProduct: "add product"
+  addProduct: "add product",
+  setProducts: "set productos",
 };
 
 const initialValues = {
   auth: false,
 
-  productos: [
-    {
-      nombre: "Billetes",
-      precio: 200,
-      descripcion: "Billetes falsos de alasitas",
-    },
-    {
-      nombre: "Anticuchos",
-      precio: 10,
-      descripcion: "Comida hecha de carne de corazon",
-    },
-    {
-      nombre: "Canchitas",
-      precio: 100,
-      descripcion: "Juego para entretenimiento de todos",
-    },
-    {
-      nombre: "Almuerzo",
-      precio: 20,
-      descripcion: "Almuerzo completo para llevar",
-    },
-  ]
+  productos: []
 };
 
 const storeReducer = (state, action) => {
@@ -48,6 +28,11 @@ const storeReducer = (state, action) => {
         ...state,
         productos: [...state.productos, action.payload]
       };
+    case types.setProducts:
+      return {
+        ...state,
+        productos: action.payload
+      }
     default:
       return state;
   }

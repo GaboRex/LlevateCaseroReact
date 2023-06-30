@@ -22,11 +22,11 @@ const SearchBar = ({ filterCategory, onFilterCategoryChange }) => {
           displayEmpty
         >
           <MenuItem value="">Todas</MenuItem>
-          <MenuItem value="salud">Salud</MenuItem>
-          <MenuItem value="ocio">Ocio</MenuItem>
-          <MenuItem value="personal">Personal</MenuItem>
-          <MenuItem value="familiar">Familiar</MenuItem>
-          <MenuItem value="trabajo">Trabajo</MenuItem>
+          <MenuItem value="Entretenimiento">Entretenimiento</MenuItem>
+          <MenuItem value="Comida">Comida</MenuItem>
+          <MenuItem value="Porcelana">Porcelana</MenuItem>
+          <MenuItem value="Fortuna">Fortuna</MenuItem>
+          <MenuItem value="Miniaturas">Miniaturas</MenuItem>
           <MenuItem value="estudios">Estudios</MenuItem>
         </StyledSelect>
       </FormControl>

@@ -7,8 +7,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import SearchBar from "../components/SearchBar";
-// import logo from "../../assets/logo4.png";
+import SearchBar from "./SearchBar";
+import logo from "../../assets/logo1.png";
 
 export default function NavBar({ toggle, filterCategory, onFilterCategoryChange, notes }) {
   const [auth, setAuth] = React.useState(true);
@@ -40,9 +40,9 @@ export default function NavBar({ toggle, filterCategory, onFilterCategoryChange,
           >
             <MenuIcon />
           </IconButton>
-          {/* <div style={{ flexGrow: 1, display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <div style={{ flexGrow: 1, display: "flex", justifyContent: "center", alignItems: "center" }}>
             <img src={logo} alt="Logo" style={{ height: 70 }} />
-          </div> */}
+          </div>
           <SearchBar
             filterCategory={filterCategory}
             onFilterCategoryChange={onFilterCategoryChange}

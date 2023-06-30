@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 import { AuthRoute } from "../auth/routes/AuthRoutes";
-import { AppRoutes } from "../app/routes/AppRoutes";
+import { CompradoresRoutes } from "../app/routes/CompradoresRoutes";
 
 export const AppRouter = () => {
   return (
     <Routes>
       <Route path="/auth/*" element={<AuthRoute />} />
-      <Route path="/*" element={<AppRoutes />} />
+      <Route path="/compradores/*" element={<CompradoresRoutes />} />
     </Routes>
   );
 };

@@ -41,7 +41,7 @@ export default function NavBar({ toggle, filterCategory, onFilterCategoryChange,
             <MenuIcon />
           </IconButton>
           <div style={{ flexGrow: 1, display: "flex", justifyContent: "center", alignItems: "center" }}>
-            <img src={logo} alt="Logo" style={{ height: 70 }} />
+            <img src={logo} alt="Logo" style={{ height: "auto", maxHeight: 70, maxWidth: "100%" }} />
           </div>
           <SearchBar
             filterCategory={filterCategory}

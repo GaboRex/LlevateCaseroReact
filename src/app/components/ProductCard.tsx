@@ -13,29 +13,28 @@ const ProductCard = memo(({ product, onAddToCart }) => {
   };
 
   return (
-    <Card variant="outlined" sx={{ margin: "10px", backgroundColor: theme.palette.background.default }}>
-      <CardContent sx={{ paddingBottom: "16px !important" }}>
-        <Typography
-          variant="h4"
-          component="div"
-          sx={{ color: theme.palette.primary.main, fontWeight: "bold", fontSize: "1.5rem", marginBottom: "8px" }}
-        >
+    <Card variant="outlined" sx={{ margin: "10px", height: "100%" }}>
+      <CardContent>
+        <Typography variant="h6" component="div" sx={{ color: theme.palette.primary.main }}>
           {product.attributes.Nombre}
         </Typography>
-        <Typography variant="body2" sx={{ color: theme.palette.text.primary, fontSize: "1rem", marginBottom: "8px" }}>
+        <Typography variant="body2" sx={{ color: theme.palette.text.primary }}>
           {product.attributes.Descripcion}
         </Typography>
-        <Typography variant="body2" sx={{ color: theme.palette.text.primary, fontSize: "1rem", marginBottom: "8px" }}>
+        <Typography variant="body2" sx={{ color: theme.palette.text.primary }}>
           {product.attributes.Precio}
         </Typography>
-        <Typography variant="body2" sx={{ color: theme.palette.text.primary, fontSize: "1rem", marginBottom: "8px" }}>
+        <Typography variant="caption" sx={{ color: theme.palette.text.secondary }}>
           {product.attributes.Vendedor}
         </Typography>
-        <Typography variant="caption" sx={{ color: theme.palette.text.secondary, fontSize: "0.8rem" }}>
+        <Typography variant="body2" sx={{ color: theme.palette.text.primary }}>
           {product.attributes.Categoria}
         </Typography>
         <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "8px" }}>
-          <ShoppingCartIcon sx={{ color: theme.palette.primary.main, cursor: "pointer", marginRight: "8px" }} onClick={handleAddToCart} />
+          <ShoppingCartIcon
+            sx={{ color: theme.palette.primary.main, cursor: "pointer", marginRight: "8px" }}
+            onClick={handleAddToCart}
+          />
         </div>
       </CardContent>
     </Card>

@@ -3,8 +3,8 @@ import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { Grid, TextField, Button, Typography, Link, FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 import { Google } from "@mui/icons-material";
 import { AuthLayout } from "../layout/AuthLayout";
-import { useDispatch } from "../../context/ContextProvider";
-import { types } from "../../context/noteReducer";
+import { useDispatch } from "../../context/AppContext";
+import { types } from "../../context/storeReducer";
 import { useForm } from "react-hook-form";
 
 import logo2 from "../../assets/logo1.png"; 
@@ -21,7 +21,7 @@ export const LoginPage = () => {
     if (role === "comprador") {
       navigate("/compradores");
     } else {
-      navigate("/");
+      navigate("/vendedores/");
     }
   };
 

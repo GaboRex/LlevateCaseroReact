@@ -1,10 +1,9 @@
-import { useState } from "react";
-import { Navigate, Route, Routes, Switch } from "react-router-dom";
-import HomePage from "../pages/HomePage";
+import { Navigate, Route, Routes } from "react-router-dom";
+import VendedoresPage from "../pages/VendedoresPage";
 import { GuardedRoute } from "../../guards/GuaardedRoute";
 import { useStore } from "../../context/AppContext";
 
-export const CompradoresRoutes = () => {
+export const VendedoresRoutes = () => {
   const { auth } = useStore();
   return (
     <Routes>
@@ -12,12 +11,11 @@ export const CompradoresRoutes = () => {
         path="productos"
         element={
           <GuardedRoute auth={auth}>
-            <HomePage />
+            <VendedoresPage />
           </GuardedRoute>
         }
       />
-      <Route path="/*" element={<Navigate to="/compradores/productos" />} />
+      <Route path="/*" element={<Navigate to="productos" />} />
     </Routes>
   );
 };
-

@@ -3,17 +3,19 @@ import FormNuevoProducto from "../components/FormNuevoProducto";
 import { ListaProductos } from "../components/ListaProductos";
 import { getProducts } from "../../services/productsService";
 import { useEffect } from "react";
-import { useDispatch } from "../../context/AppContext";
+import { useDispatch, useStore } from "../../context/AppContext";
 import { types } from "../../context/storeReducer";
 
 const VendedoresPage = () => {
 
   const dispatch = useDispatch();
+  const {user} = useStore();
 
   const saveProducts = async () => {
     const { data } = await getProducts();
-    
-    dispatch({ type: types.setProducts, payload: data });
+
+    dispatch({ type: types.setProducts, 
+      payload: data.filter((d) => d.attributes.Vendedor ===  user) });
   }
 
   useEffect(() => {

@@ -17,6 +17,7 @@ export default function NavBar({ toggle }) {
   const dispatch = useDispatch();
 
   const logout = () => {
+    dispatch({ type: types.setProducts, payload: [] });
     dispatch({type: types.logout})
   };
 

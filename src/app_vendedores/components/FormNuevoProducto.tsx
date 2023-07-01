@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import { TextField, Button, FormControl, InputLabel, Select, MenuItem, Stack, Box, FormHelperText } from '@mui/material';
-import { useDispatch } from '../../context/AppContext';
+import { useDispatch, useStore } from '../../context/AppContext';
 import { types } from '../../context/storeReducer';
 import { postProduct } from '../../services/productsService';
 
@@ -8,9 +8,12 @@ const FormNuevoProducto = () => {
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
   const dispatch = useDispatch();
 
+  const {user} = useStore();
+
   const onAddProduct = async (data) => {
     const nuevoProducto = {
-      ...data
+      ...data,
+      Vendedor: user
     }
     const post = await postProduct({data:nuevoProducto});
     

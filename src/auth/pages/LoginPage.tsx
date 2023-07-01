@@ -17,7 +17,8 @@ export const LoginPage = () => {
 
   const handleLogin = (data) => {
     dispatch({ type: types.login });
-
+    dispatch({type: types.setUser, payload: data.nombre})
+    
     if (role === "comprador") {
       navigate("/compradores");
     } else {
@@ -38,11 +39,13 @@ export const LoginPage = () => {
             <Grid container spacing={2} justifyContent="center" alignItems="center">
             <Grid item xs={12}>
                 <TextField
-                  label="nombre"
+                  label="Nombre"
                   type="nombre"
                   placeholder="nombre"
                   fullWidth
                   variant="outlined"
+                  {...register('nombre', { required: 'Campo obligatorio' })}
+
                 />
               </Grid>
               <Grid item xs={12}>

@@ -1,6 +1,7 @@
 const types = {
   login: "login User",
   logout: "log out User",
+  setUser: "set user",
   addProduct: "add product",
   setProducts: "set productos",
   deleteProduct: "delete product",
@@ -8,7 +9,7 @@ const types = {
 
 const initialValues = {
   auth: false,
-
+  user: "",
   productos: []
 };
 
@@ -23,6 +24,11 @@ const storeReducer = (state, action) => {
       return {
         ...state,
         auth: false,
+      };
+    case types.setUser:
+      return {
+        ...state,
+        user: action.payload,
       };
     case types.addProduct:
       return {

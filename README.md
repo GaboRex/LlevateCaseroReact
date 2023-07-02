@@ -1,6 +1,6 @@
 # LLevate Casero!🎉💰💵
 
-Alasitas Marketplace es una plataforma de administración de vendedores inspirada en la tradicional feria de Alasitas. En esta plataforma, cada vendedor puede añadir sus productos únicos y los compradores tienen la posibilidad de explorar y añadir estos productos a su carrito de compras. Además, los compradores pueden realizar pedidos con los productos seleccionados, completando los detalles necesarios para la entrega.
+Llevate Casero es una plataforma de administración de vendedores inspirada en la tradicional feria de Alasitas. En esta plataforma, cada vendedor puede añadir sus productos únicos y los compradores tienen la posibilidad de explorar y añadir estos productos a su carrito de compras. Además, los compradores pueden realizar pedidos con los productos seleccionados, completando los detalles necesarios para la entrega.
 
 *Características destacadas:*
 - Registro de vendedores y compradores.

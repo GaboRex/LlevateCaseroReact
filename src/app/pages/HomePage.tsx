@@ -24,6 +24,7 @@ export default function HomePage() {
   const [cartItems, setCartItems] = React.useState([]);
   const [filterCategory, setFilterCategory] = React.useState("");
   const [showCart, setShowCart] = React.useState(false);
+  const [isProductAdded, setIsProductAdded] = React.useState(false); // Nuevo estado para mostrar la alerta
   const theme = useTheme();
 
   React.useEffect(() => {
@@ -57,6 +58,7 @@ export default function HomePage() {
 
   const handleAddToCart = (product) => {
     setCartItems([...cartItems, product]);
+    setIsProductAdded(true); // Mostrar la alerta cuando se agrega un producto al carrito
   };
 
   const handleRemoveFromCart = (product) => {
@@ -72,6 +74,16 @@ export default function HomePage() {
     ? products.filter((product) => product.attributes.Categoria === filterCategory)
     : products;
 
+  React.useEffect(() => {
+    if (isProductAdded) {
+      const timer = setTimeout(() => {
+        setIsProductAdded(false);
+      }, 2000); // Ocultar la alerta después de 2 segundos
+
+      return () => clearTimeout(timer);
+    }
+  }, [isProductAdded]);
+
   return (
     <div>
       <NavBar
@@ -80,10 +92,10 @@ export default function HomePage() {
         onFilterCategoryChange={handleFilterCategoryChange}
         products={products}
         onProductClick={handleProductClick}
-        onCartClick={handleCartClick} // Pasar la función como prop
+        onCartClick={handleCartClick}
       />
       <Drawer anchor="left" open={toggle} onClose={toggleDrawer(false)}>
-        {list(handleProductClick, handleCartClick)} 
+        {list(handleProductClick, handleCartClick)}
       </Drawer>
       {showProduct && (
         <div>
@@ -111,11 +123,25 @@ export default function HomePage() {
           <ShoppingCar cartItems={cartItems} onRemoveFromCart={handleRemoveFromCart} />
         </div>
       )}
+      {isProductAdded && (
+        <div
+          style={{
+            position: "fixed",
+            bottom: "20px",
+            right: "20px",
+            padding: "10px",
+            backgroundColor: "green",
+            color: "white",
+          }}
+        >
+          Producto agregado al carrito
+        </div>
+      )}
     </div>
   );
 }
 
-function list(handleProductClick, handleCartClick) { // Recibir ambas funciones como parámetros
+function list(handleProductClick, handleCartClick) {
   return (
     <Box sx={{ width: 250 }} role="presentation">
       <List>
